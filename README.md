@@ -37,3 +37,16 @@ http.createServer(function(request, response) {
   console.log("App is listening on port 3000")
 });
 ```
+
+### Express Web server
+[Express API](http://expressjs.com/)
+
+To add express node module to our application:
+`sudo npm install --save express`
+To ensure it was added right, check `package.json` for
+```js
+"dependencies": {
+  "express": "^4.15.3"
+}```
+
+This also gives us a ton of code we don't need, so we make a `.gitignore` file with `touch .gitignore` and write in it `node_modules/`.
