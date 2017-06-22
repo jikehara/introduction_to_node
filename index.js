@@ -19,6 +19,23 @@ app.get('/greeting', function(req, res) {
   res.send("You found the greeting endpoint!")
 });
 
+app.get('/greeting/:name', function(req, res) {
+  var yourName = req.params.name;
+  var message = "Nice to meet you, " + yourName;
+  res.send(message);
+});
+
+app.get('/greeting/:color', function(req, res) {
+  var color = req.params.color;
+  var message = "Your favorite color is " + color;
+  res.send(message);
+});
+
+app.get('/salutations', function(req, res) {
+  res.send("Thank you, Mr. Node!")
+});
+
+
 app.listen(3000, function() {
   console.log("Listening to Port 3000")
 })
