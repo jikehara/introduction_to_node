@@ -18,3 +18,22 @@ git commit -m "commit message here"
 git push origin master`
 
 ---
+
+`example node_module: [Moment.js]
+https://momentjs.com`
+
+### Node HTTP SErver
+WE used the node module HTTP to build a simple web server which we can run using the localhost. this example would use a browser address of "localhost:3000".
+
+```js
+// Date: 22 June 2017
+var http = require('http');
+// console.log(http);
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {'Content-Type':'text/plain'});
+  response.end("Hello World!"); //fires when response is complete
+}).listen(3000, function() {
+  console.log("App is listening on port 3000")
+});
+```
