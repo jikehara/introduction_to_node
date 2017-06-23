@@ -50,3 +50,24 @@ To ensure it was added right, check `package.json` for
 }```
 
 This also gives us a ton of code we don't need, so we make a `.gitignore` file with `touch .gitignore` and write in it `node_modules/`.
+
+### Nodemon
+Nodemon will watch our files autoatically and restart our server so we don't have to do it manually.
+
+How to install: `sudo npm install -g nodemon`.
+
+How to use: `sudo nodemon index.js`
+
+
+###
+
+In order to use Postman with req and res, you have to change to the "body" tab to put in keys (vars) and their values. 
+```js
+app.post('/movies', function(req, res) {
+
+  var movie = {
+    title: req.body.title,
+    rating: req.body.rating,
+    recommend: req.body.recommend
+  };
+```

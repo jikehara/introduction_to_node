@@ -1,6 +1,7 @@
 // index.js
 // Date: 22 June 2017
 var http = require('http');
+var bodyParser = require('body-parser');
 // console.log(http);
 
 // http.createServer(function(request, response) {
@@ -12,6 +13,8 @@ var http = require('http');
 
 var express = require('express');
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // res -- response, req -- request
 // res determines what happens when we req something from a browser
@@ -25,9 +28,9 @@ app.get('/greeting/:name', function(req, res) {
   res.send(message);
 });
 
-app.get('/greeting/:color', function(req, res) {
-  var color = req.params.color;
-  var message = "Your favorite color is " + color;
+app.get('/color/:color', function(req, res) {
+  var yourColor = req.params.color;
+  var message = "Your favorite color is " + yourColor;
   res.send(message);
 });
 
@@ -35,6 +38,33 @@ app.get('/salutations', function(req, res) {
   res.send("Thank you, Mr. Node!")
 });
 
+app.post('/products', function(req, res) {
+  // console.log(req.body.testOne);
+  var name = req.body.name;
+  var color = req.body.color;
+  var price = req.body.price;
+
+  var product = {
+    name: name,
+    color: color,
+    price: price
+  };
+
+  res.json(product);
+  console.log(req.body);
+});
+
+app.post('/movies', function(req, res) {
+
+  var movie = {
+    title: req.body.title,
+    rating: req.body.rating,
+    recommend: req.body.recommend
+  };
+
+  res.json(movie);
+  console.log(movie);
+}) ;
 
 app.listen(3000, function() {
   console.log("Listening to Port 3000")
