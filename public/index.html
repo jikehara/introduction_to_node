@@ -21,23 +21,24 @@
       </div>
 
       <div>
-        <form>
+        <form v-on:submit.prevent="submitInstagram">
           <div class="form-group">
             <label>Title</label>
-            <input type="text"/>
+            <input type="text" v-model="newTitle"/>
           </div>
 
           <div class="form-group">
             <label>image URL</label>
-            <input type="text"/>
+            <input type="text" v-model="newImage"/>
           </div>
+          <button type="submit" class="btn btn-default" name="button">Hey</button>
         </form>
       </div>
 
-      <div class="panel panel-default">
-        <h1></h1>
-        <img src="" class="dog-image"/>
-        <p>This is definitely a paragraph.</p>
+      <div v-for="i in instagrams" class="panel panel-default">
+        <h1>{{ i.title }}</h1>
+        <img :src="i.img" class="dog-image"/>
+        <p>{{ i.date }}</p>
       </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
